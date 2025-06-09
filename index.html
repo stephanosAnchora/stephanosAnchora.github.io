@@ -1,1 +1,170 @@
-Hello World
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tester Jims Analytics Playground</title>
+    
+<!-- 
+    Environment:        JR - Testing Environment
+    Environment ID:     ENe26494ea49eb411dafd4f6c30c2338df
+    Property:           AA - Anchora
+-->
+    
+    <script src="https://assets.adobedtm.com/0c3be15f3d3d/89801bc78d6c/launch-51d5c5628bb5-development.min.js" async></script>
+        
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .accordion {
+            max-width: 600px;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .accordion-header {
+            padding: 20px;
+            cursor: pointer;
+            font-size: 24px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            text-align: left;
+            border-radius: 8px 8px 0 0;
+        }
+        .accordion-content {
+            padding: 20px;
+            display: none;
+            border-top: 1px solid #ccc;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .big-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+    </style>
+
+    <script>
+        var digitalData;
+        let name = window.location.pathname;
+        digitalData = 
+            {
+                page:{
+                    pageName: name
+                },
+                interaction: {
+                    linkText: "",
+                    componentName: ""
+                },
+                user: {
+                    username: "",
+                    email: "",
+                    mobile: ""
+                }
+            };
+
+        // Variables to store input values
+        let username, email, phoneNumber;
+
+        function storeValues() {
+            username = document.getElementById('username').value;
+            digitalData.user.username = username;
+            email = document.getElementById('email').value;
+            digitalData.user.email = email;
+            phoneNumber = document.getElementById('phone').value;
+            digitalData.user.mobile = phoneNumber;
+            //console.log('Stored Values:', { username, email, phoneNumber });
+        }
+
+        function toggleAccordion(event) {
+            const content = event.currentTarget.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</head>
+<body>
+        
+<div class="accordion">
+    <button class="accordion-header" id="accordianButton" onclick="toggleAccordion(event)">Random Article - Click to Open!</button>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+</div>
+
+<!-- Input fields for username, email, and phone number -->
+<div>
+    <input type="text" id="username" placeholder="Username" onblur="storeValues()">
+    <input type="email" id="email" placeholder="Email" onblur="storeValues()">
+    <input type="tel" id="phone" placeholder="Phone Number" onblur="storeValues()">
+</div>
+<br>
+<br>
+<div class="button-container">
+    <button class="big-button" id="buttonOne" onclick="changeColor(this), digitalData.interaction.linkText = this.innerText">Button 1</button>
+    <button class="big-button" id="buttonTwo" onclick="changeColor(this), digitalData.interaction.linkText = this.innerText">Button 2</button>
+    <button class="big-button" id="buttonThree" onclick="changeColor(this), digitalData.interaction.linkText = this.innerText">Button 3</button>
+    <button class="big-button" id="buttonFour" onclick="changeColor(this), digitalData.interaction.linkText = this.innerText">Button 4</button>
+</div>
+<br>
+<br>
+
+<div class="image-container">
+    <a href="https://i.imgur.com/KBSUIkO.jpg" target="_blank">
+        <img src="https://i.imgur.com/KBSUIkO.jpg" id="image1" alt="Image 1" style="width: 500px">
+    </a>
+    <a href="https://i.imgur.com/ehTEXZA.jpg" target="_blank">
+        <img src="https://i.imgur.com/ehTEXZA.jpg" id="image2" alt="Image 2" style="width: 500px">
+    </a>
+</div>
+
+
+<script>
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function changeColor(button) {
+        const newColor = getRandomColor();
+        button.style.backgroundColor = newColor;
+        //button.innerText = newColor; // Change the inner text to the hex code
+    }
+
+    document.querySelectorAll('.button').forEach(button => {
+        button.addEventListener('click', function() {
+            changeColor(this);
+        });
+    });
+</script>
+
+</body>
+</html>
