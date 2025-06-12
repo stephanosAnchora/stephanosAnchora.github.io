@@ -87,34 +87,6 @@ function updateButtons(buttonActions, proposition) {
   });
 }
 
-function applyPersonalization(surfaceName) {
-  return function (result) {
-    const { propositions = []} = result;
-
-    const proposition = propositions.filter((p) =>
-      p.scope.endsWith(surfaceName)
-    )[0];
-    console.log("PROPOSITION");
-    console.log(proposition)
-
-    if (proposition) {
-      // send display event for the surface
-      console.log('sendDisplayEvent')
-      sendDisplayEvent(proposition)
-
-      const element = document.querySelector("img.ajo-decision");
-
-      const {
-        buttonActions = [],
-        heroImageName = "demo-marketing-decision1-default.png",
-      } = proposition.items[0].data.content;
-
-      updateButtons(buttonActions, proposition);
-
-      element.src = `img/${heroImageName}`;
-    }
-  };
-}
 
 function displayError(err) {
   const containerElement = document.getElementById("main-container");

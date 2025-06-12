@@ -65,5 +65,39 @@
     <button id="action-button-3" data-id="3" type="button" class="btn btn-info">Three</button>
   </div>
 </div>
+<script>
+  
+function applyPersonalization(surfaceName) {
+    
+    console.log(surfaceName);
+  return function (result) {
+    console.log("Before proposition");
+    const { propositions = []} = result;
+
+    const proposition = propositions.filter((p) =>
+      p.scope.endsWith(surfaceName)
+    )[0];
+    console.log("PROPOSITION");
+    console.log(proposition)
+
+    if (proposition) {
+      // send display event for the surface
+      console.log('sendDisplayEvent')
+      sendDisplayEvent(proposition)
+
+      const element = document.querySelector("img.ajo-decision");
+
+      const {
+        buttonActions = [],
+        heroImageName = "demo-marketing-decision1-default.png",
+      } = proposition.items[0].data.content;
+
+      updateButtons(buttonActions, proposition);
+
+      element.src = `img/${heroImageName}`;
+    }
+  };
+}
+</script>
 </body>
 </html>
