@@ -121,34 +121,34 @@
 </div>
 
 <div id="txtfromajo">This is 1st page </div>
-<div id="txtfromajo2">Edge or Stream </div>
-<!-- Input fields for username, email, and phone number -->
-<div>
-    <input type="text" id="username" placeholder="Username" onblur="storeValues()">
-    <input type="email" id="email" placeholder="Email" onblur="storeValues()">
-    <input type="tel" id="phone" placeholder="Phone Number" onblur="storeValues()">
-</div>
-<br>
-<br>
-<div class="button-container">
-    <button class="big-button" id="buttonOne" onclick="window.open('page2.html','_self')">NEXT PAGE</button>
-    <button class="big-button" id="buttonTwo" onclick="changeColor(this), digitalData.interaction.linkText = this.innerText">Button 2</button>
-    <button class="big-button" id="buttonThree" onclick="changeColor(this), digitalData.interaction.linkText = this.innerText">Button 3</button>
-    <button class="big-button" id="buttonFour" onclick="changeColor(this), digitalData.interaction.linkText = this.innerText">Button 4</button>
-</div>
-<br>
-<br>
+<div id="txtfromajo2">Edge or Stream 
+        <!-- Input fields for username, email, and phone number -->
+        <div>
+            <input type="text" id="username" placeholder="Username" onblur="storeValues()">
+            <input type="email" id="email" placeholder="Email" onblur="storeValues()">
+            <input type="tel" id="phone" placeholder="Phone Number" onblur="storeValues()">
+        </div>
+        <br>
+        <br>
+        <div class="button-container">
+            <button class="big-button" id="buttonOne" onclick="window.open('page2.html','_self')">NEXT PAGE</button>
+            <button class="big-button" id="buttonTwo" onclick="changeColor(this), digitalData.interaction.linkText = this.innerText">Button 2</button>
+            <button class="big-button" id="buttonThree" onclick="changeColor(this), digitalData.interaction.linkText = this.innerText">Button 3</button>
+            <button class="big-button" id="buttonFour" onclick="changeColor(this), digitalData.interaction.linkText = this.innerText">Button 4</button>
+        </div>
+        <br>
+        <br>
 
-<div class="image-container">
-    <a href="https://i.imgur.com/KBSUIkO.jpg" target="_blank">
-        <img src="https://i.imgur.com/KBSUIkO.jpg" id="image1" alt="Image 1" style="width: 500px">
-    </a>
-    <a href="https://i.imgur.com/ehTEXZA.jpg" target="_blank">
-        <img src="https://i.imgur.com/ehTEXZA.jpg" id="image2" alt="Image 2" style="width: 500px">
-    </a>
+        <div class="image-container">
+            <a href="https://i.imgur.com/KBSUIkO.jpg" target="_blank">
+                <img src="https://i.imgur.com/KBSUIkO.jpg" class="image1" id="image1" alt="Image 1" style="width: 500px">
+            </a>
+            <a href="https://i.imgur.com/ehTEXZA.jpg" target="_blank">
+                <img src="https://i.imgur.com/ehTEXZA.jpg" id="image2" class="image2" alt="Image 2" style="width: 500px">
+            </a>
+        </div>
+
 </div>
-
-
 
 
 <script>
@@ -245,7 +245,7 @@ function applyPersonalization(surfaceName) {
     )[0];
 
     if (proposition) {
-      const element = document.querySelector("img.ajo-decision");
+      const element = document.querySelector("img.image1");
 
       const {
         buttonActions = [],
