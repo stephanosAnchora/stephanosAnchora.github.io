@@ -27,7 +27,7 @@ function createIdentityPayload(
 
 function sendDisplayEvent(proposition) {
   const { id, scope, scopeDetails = {} } = proposition;
-
+console.log("send")
   alloy("sendEvent", {
     xdm: {
       eventType: "decisioning.propositionDisplay",
@@ -94,9 +94,12 @@ function applyPersonalization(surfaceName) {
     const proposition = propositions.filter((p) =>
       p.scope.endsWith(surfaceName)
     )[0];
+    console.log("PROPOSITION");
+    console.log(proposition)
 
     if (proposition) {
       // send display event for the surface
+      console.log('sendDisplayEvent')
       sendDisplayEvent(proposition)
 
       const element = document.querySelector("img.ajo-decision");
