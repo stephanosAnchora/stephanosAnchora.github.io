@@ -42,46 +42,15 @@
   <div class="page-header" id="txtfromajo2">
     <h1>Hello World!</h1>
   </div>
-  <img id="ajo-decision" src="img/demo-marketing-decision1-default.png" width="640" alt="ajo decision" class="img-responsive img-rounded ajo-decision" />
+  
   <p id="paragraph-text-1" class="lead">
     This is a sample web page. It leverages the <a
     href="https://experienceleague.adobe.com/docs/experience-platform/edge/home.html">Adobe Experience Platform Web
-    SDK</a> and <a
-    href="https://experienceleague.adobe.com/docs/experience-platform/edge-network-server-api/overview.html">APIs</a>
-    to render personalization content.
+    SDK</a> 
   </p>
-  <p id="paragraph-text-2">
-    Vestibulum cursus tristique risus, volutpat lobortis quam fermentum dapibus. Sed lacus augue, vulputate a placerat
-    vel, fringilla sed velit. In aliquet odio ut efficitur gravida. Vivamus volutpat hendrerit nisl ut rutrum. Donec
-    id nunc dolor. Pellentesque lectus mi, consequat sit amet elit vitae, laoreet euismod est. Cras placerat ex
-    ligula, nec malesuada dolor feugiat ut. Ut condimentum ante turpis, a iaculis massa cursus vitae. Sed sed felis
-    quam. Sed hendrerit, nisl vel viverra viverra, nisi mauris laoreet tortor, ut blandit lectus lacus ut tellus.
-    Integer ante sapien, tincidunt ut erat id, volutpat finibus urna. Aliquam rhoncus tellus vitae facilisis varius.
-  </p>
-
-  <div id="some-buttons">
-    <button id="action-button-1" data-id="1" type="button" class="btn btn-primary">One</button>
-    <button id="action-button-2" data-id="2" type="button" class="btn btn-success">Two</button>
-    <button id="action-button-3" data-id="3" type="button" class="btn btn-info">Three</button>
-  </div>
-</div>
-<script>
   
 
-function applyPersonalization(surfaceName) {
-  return function (result) {
-    const { propositions = [] } = result;
-    
-    const proposition = propositions.filter((p) =>
-      p.scope.endsWith(surfaceName)
-    )[0];
+</div>
 
-    if (proposition) {
-      const element = document.getElementById('txtfromajo2');
-      element.innerHTML += proposition.items[0].data.content;
-    }
-  };
-}
-</script>
 </body>
 </html>
