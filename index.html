@@ -40,7 +40,7 @@
 </nav>
 <div id="main-container" class="container">
   <div class="page-header" id="txtfromajo2">
-    <h1>Hello World!</h1>
+    <h1>Hello World! Aug 2025</h1>
   </div>
   
   <p id="paragraph-text-1" class="lead">
@@ -51,6 +51,23 @@
   
 
 </div>
+<script>
+  
 
+function applyPersonalization(surfaceName) {
+  return function (result) {
+    const { propositions = [] } = result;
+    
+    const proposition = propositions.filter((p) =>
+      p.scope.endsWith(surfaceName)
+    )[0];
+
+    if (proposition) {
+      const element = document.getElementById('txtfromajo2');
+      element.innerHTML += proposition.items[0].data.content;
+    }
+  };
+}
+</script>
 </body>
 </html>
